@@ -1,15 +1,18 @@
 import person
 from night_club import NightClub
 
-test = person.PopDance('Никита', 'мальчик', False, False, True, False, False)
-test_one = person.RnbDance('Настя', 'девочка', False, False, False, False, True)
-test_two = person.PopDance('Женя', 'мальчик', False, False, True, False, False)
+test = person.PopDance(name='Никита', sex='мальчик', hip_hop_skill=False, electro_skill=False, pop_skill=True,
+                       house_skill=False, rnb_skill=False)
+test_one = person.RnbDance(name='Настя', sex='девочка', hip_hop_skill=False, electro_skill=False, pop_skill=False,
+                           house_skill=False, rnb_skill=True)
+test_two = person.PopDance(name='Женя', sex='мальчик', hip_hop_skill=False, electro_skill=False, pop_skill=True,
+                           house_skill=False, rnb_skill=False)
 
 club = NightClub()
-club.add_person(test)
-club.add_person(test_one)
-club.add_person(test_two)
+club.add_person(person=test)
+club.add_person(person=test_one)
+club.add_person(person=test_two)
 
-club.play_music("Rnb")
-club.play_music("Electrohouse")
-club.play_music("Pop-music")
+club.play_music(song="Rnb")
+club.play_music(song="Electrohouse")
+club.play_music(song="Pop-music")
