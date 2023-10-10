@@ -1,3 +1,22 @@
+from enum import Enum, unique
+
+
+@unique
+class DanceType(Enum):
+    RNB = "rnb"
+    HOUSE = "house"
+    POP = "pop"
+    ELECTRO = "electro"
+    HIPHOP = "hip-hop"
+
+
+@unique
+class MusicType(Enum):
+    rnb = ["rnb", "hip-hop"]
+    electrohouse = ["electro", "house"]
+    pop = ["pop"]
+
+
 class NightClub:
     def __init__(self):
         self.people = []
@@ -10,19 +29,15 @@ class NightClub:
         """
         self.people.append(person)
 
-    def play_music(self, song: str) -> None:
+    def play_music(self, song: object) -> None:
         """
         метод, который моделирует ночной клуб, в зависимости от музыки персонажи выполняют некоторые действия: танцуют или пьют
         :param song:
         :return None:
         """
-        print(f"Сейчас играет {song}!")
+        print(f"Сейчас играет {song.name}!")
         for person in self.people:
-            if song == "Rnb" and (person.get_rnb_skill() or person.get_hip_hop_skill()):
-                print(person.dance())
-            elif song == "Electrohouse" and (person.get_house_skill() or person.get_electro_skill()):
-                print(person.dance())
-            elif song == "Pop-music" and person.get_pop_skill():
+            if len(list(set(song.value) & set(person.get_skills()))) != 0:
                 print(person.dance())
             else:
                 print(person.drink())

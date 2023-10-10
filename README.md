@@ -1,7 +1,7 @@
 # test_qiwi
 `для запуска тестов введите в консоль:`
 ```
-python -m unittest tests.TestNightClub
+pytest -rap tests/tests.py
 ```
 `для запуска "ночного клуба" введите в консоль:`
 ```
